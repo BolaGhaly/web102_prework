@@ -1,59 +1,99 @@
-@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-body {
-  font-family: "Cabin";
-  background-color: #758190;
-  overflow-x: hidden;
+html {
+  scroll-behavior: smooth;
 }
 
-#tentacles {
-  width: 50px;
+body {
+  overflow-x: hidden;
+  font-family: "Poppins";
+  background-color: #1e2631;
+  margin: 0;
+  color: whitesmoke;
 }
 
 .header {
   display: flex;
-  background-color: lightblue;
-  padding: 1%;
+  background-color: #b1bfd4;
   align-items: center;
-  margin-left: -10px;
-  margin-right: -10px;
-  margin-top: -10px;
+  padding: 12px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: black;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+nav ul {
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-right: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.125rem;
+  font-weight: 500;
 }
 
 .stats-container {
   display: flex;
 }
 
-.stats-container:hover {
-  cursor: pointer;
-  box-shadow: 0 0 30px lightblue;
-}
-
 .stats-card {
-  background-color: #a8b0bc;
+  color: black;
+  background-color: #b1bfd4;
   border-radius: 7px;
   padding: 1%;
-  margin: 1%;
+  margin: 20px;
   width: 100%;
   text-align: center;
+  border: 2px solid black;
 }
 
-#num-contributions,
-#total-raised,
-#num-games {
-  font-size: 50px;
+.stats-card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px lightblue;
 }
 
 #games-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  color: black;
+  margin: 5px 0 20px;
+}
+
+#button-container button {
+  border: 2px solid black;
+  cursor: pointer !important;
 }
 
 .game-img {
   width: 100%;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #ffffff;
+  border-radius: 4px;
 }
 
 .game-card {
@@ -63,21 +103,41 @@ body {
   width: 300px;
   text-align: center;
   border-radius: 7px;
+  border: 2px solid black;
 }
 
 .game-card:hover {
   cursor: pointer;
-  box-shadow: 0 0 30px lightblue;
+  box-shadow: 0 0 15px lightblue;
 }
 
 #button-container {
   text-align: center;
 }
 
-button {
-  font-family: "Cabin";
-  border: none;
-  padding: 1%;
-  margin: 1%;
+#button-container button {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Poppins";
   border-radius: 7px;
+  padding: 12px 10px;
+  margin: 0 10px;
+}
+
+.section-title {
+  padding-top: 15px;
+  margin: 30px 0 0 20px;
+}
+
+.section-paragraph {
+  margin-left: 20px;
+}
+
+.stats-card h3 {
+  font-size: 1.25rem;
+}
+
+.stats-card p {
+  font-size: 1.125rem;
+  font-weight: 500;
 }
