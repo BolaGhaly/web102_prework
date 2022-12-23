@@ -79,45 +79,52 @@ let firstLetters = animals.reduce((sum, animal) => {
   return animal.charAt(0);
 }, "");
 
-console.log(firstLetters);
-
 /*************************************************************************************
  * Challenge 5: Add functions to filter the funded and unfunded games
  * total number of contributions, amount donated, and number of games on the site.
  * Skills used: functions, filter
  */
 
-// show only games that do not yet have enough funding
 function filterUnfundedOnly() {
   deleteChildElements(gamesContainer);
 
-  // use filter() to get a list of games that have not yet met their goal
+  const filterUnfunded = GAMES_JSON.filter((game) => {
+    return game.pledged < game.goal;
+  });
 
-  // use the function we previously created to add the unfunded games to the DOM
+  addGamesToPage(filterUnfunded);
 }
 
-// show only games that are fully funded
 function filterFundedOnly() {
   deleteChildElements(gamesContainer);
 
-  // use filter() to get a list of games that have met or exceeded their goal
+  const filterFunded = GAMES_JSON.filter((game) => {
+    return game.pledged >= game.goal;
+  });
 
-  // use the function we previously created to add unfunded games to the DOM
+  addGamesToPage(filterFunded);
 }
 
-// show all games
 function showAllGames() {
   deleteChildElements(gamesContainer);
-
-  // add all games from the JSON data to the DOM
+  addGamesToPage(GAMES_JSON);
 }
 
-// select each button in the "Our Games" section
 const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 
-// add event listeners with the correct functions to each button
+unfundedBtn.addEventListener("click", () => {
+  filterUnfundedOnly();
+});
+
+fundedBtn.addEventListener("click", () => {
+  filterFundedOnly();
+});
+
+allBtn.addEventListener("click", () => {
+  showAllGames();
+});
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
