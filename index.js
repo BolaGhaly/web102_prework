@@ -143,6 +143,7 @@ unfundedGamesEle.innerText = `${
     ? `A total of ${raisedCard.innerHTML} has been raised for ${gamesCard.innerHTML} games. Currently, ${numOfUnfundedGames.length} games remain unfunded. We need your help to fund these amazing games!`
     : ""
 }`;
+unfundedGamesEle.classList.add("section-paragraph");
 
 descriptionContainer.append(unfundedGamesEle);
 
