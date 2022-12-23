@@ -131,14 +131,20 @@ allBtn.addEventListener("click", () => {
  * Skills used: template literals, ternary operator
  */
 
-// grab the description container
 const descriptionContainer = document.getElementById("description-container");
 
-// use filter or reduce to count the number of unfunded games
+const numOfUnfundedGames = GAMES_JSON.filter((game) => {
+  return game.pledged < game.goal;
+});
 
-// create a string that explains the number of unfunded games using the ternary operator
+const unfundedGamesEle = document.createElement("p");
+unfundedGamesEle.innerText = `${
+  numOfUnfundedGames.length > 0
+    ? "The number of unfunded games: " + numOfUnfundedGames.length
+    : ""
+}`;
 
-// create a new DOM element containing the template string and append it to the description container
+descriptionContainer.append(unfundedGamesEle);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
