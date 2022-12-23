@@ -74,11 +74,6 @@ const gamesCard = document.getElementById("num-games");
 
 gamesCard.innerHTML = `${GAMES_JSON.length}`;
 
-let animals = ["giraffe", "horse", "narwhal", "chinchilla"];
-let firstLetters = animals.reduce((sum, animal) => {
-  return animal.charAt(0);
-}, "");
-
 /*************************************************************************************
  * Challenge 5: Add functions to filter the funded and unfunded games
  * total number of contributions, amount donated, and number of games on the site.
