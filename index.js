@@ -140,7 +140,7 @@ const numOfUnfundedGames = GAMES_JSON.filter((game) => {
 const unfundedGamesEle = document.createElement("p");
 unfundedGamesEle.innerText = `${
   numOfUnfundedGames.length > 0
-    ? "The number of unfunded games: " + numOfUnfundedGames.length
+    ? `A total of ${raisedCard.innerHTML} has been raised for ${gamesCard.innerHTML} games. Currently, ${numOfUnfundedGames.length} games remain unfunded. We need your help to fund these amazing games!`
     : ""
 }`;
 
