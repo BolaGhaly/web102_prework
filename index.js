@@ -4,13 +4,10 @@
  * -> A function that deletes all child elements from a parent element in the DOM
  */
 
-// import the JSON data about the crowd funded games from the games.js file
 import GAMES_DATA from "./games.js";
 
-// create a list of objects to store the data about the games using JSON.parse
 const GAMES_JSON = JSON.parse(GAMES_DATA);
 
-// remove all child elements from a parent element in the DOM
 function deleteChildElements(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
@@ -55,20 +52,34 @@ addGamesToPage(GAMES_JSON);
  * Skills used: arrow functions, reduce, template literals
  */
 
-// grab the contributions card element
 const contributionsCard = document.getElementById("num-contributions");
 
-// use reduce() to count the number of total contributions by summing the backers
+const totalContributions = GAMES_JSON.reduce(
+  (backers, game) => backers + game.backers,
+  0
+);
 
-// set the inner HTML using a template literal and toLocaleString to get a number with commas
+contributionsCard.innerHTML = `${totalContributions.toLocaleString("en-US")}`;
 
-// grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
 
-// set inner HTML using template literal
+const moneyPledged = GAMES_JSON.reduce(
+  (money, game) => money + game.pledged,
+  0
+);
 
-// grab number of games card and set its inner HTML
+raisedCard.innerHTML = `$${moneyPledged.toLocaleString("en-US")}`;
+
 const gamesCard = document.getElementById("num-games");
+
+gamesCard.innerHTML = `${GAMES_JSON.length}`;
+
+let animals = ["giraffe", "horse", "narwhal", "chinchilla"];
+let firstLetters = animals.reduce((sum, animal) => {
+  return animal.charAt(0);
+}, "");
+
+console.log(firstLetters);
 
 /*************************************************************************************
  * Challenge 5: Add functions to filter the funded and unfunded games
